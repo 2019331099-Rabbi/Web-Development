@@ -1,0 +1,21 @@
+.d1 {
+    width: 500px;
+    height: 500px;
+    background: url(2019331099.jpg) no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .d1:hover {
+    opacity: 0.5;
+  }
+  
+  .d2 {
+    font-size: 70px;
+    text-align: center;
+    background-color: aqua;
+    opacity: 0.5;
+  }
+  

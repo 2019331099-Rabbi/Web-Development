@@ -1,0 +1,15 @@
+h1{
+    color: deepskyblue;
+    background-color: aliceblue;
+}
+h2{
+    color: deepskyblue;
+    background-color: aliceblue;
+}
+body{
+    background-color: rgb(4, 50, 35);
+    background-image: url(indexback.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 1000px;
+}

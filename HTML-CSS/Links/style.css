@@ -1,0 +1,26 @@
+#plink{
+    color: rgb(2, 103, 144);
+    text-decoration: none;
+    background-color: whitesmoke;
+
+    border-width: 1px;
+    border-style: solid;
+    padding: 1px;
+    border-color: black;
+}
+
+#plink:hover{
+    color: gray;
+    background-color: black;
+    
+}
+
+#plink:active{
+    color: darkgreen;
+    background-color: lightgreen;
+}
+
+/* #plink:visited{
+    color: gray;
+    background-color: black;
+} */

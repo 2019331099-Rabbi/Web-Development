@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    background-color: #43609C;
+    padding: 8px 0;
+}
+
+.header::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.container {
+    width: 65%;
+    margin: auto;
+}
+
+.logo-area {
+    width: 30%;
+    float: left;
+}
+
+.login-area label {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.login-area .login input {
+    color: white;
+    font-weight: bold;
+    background: #43609C;
+}
+
+.login-area {
+    width: 70%;
+    float: left;
+}
+
+.login-area form {
+    float: right;
+}
+
+.login-area label,
+input {
+    display: block;
+}
+
+.login-area .email,
+.password,
+.login {
+    float: left;
+    margin-right: 15px;
+}
+
+.login-area .login {
+    margin-right: 0px;
+}
+
+.logo-area img {
+    width: 180px;
+}
+
+.login-area input[type="text"] {
+    border: 1px solid #000;
+    font-size: 15px;
+    font-weight: lighter;
+    padding: 2px 3px;
+    border-radius: 5px;
+}
+
+.login-area input[type="password"] {
+    border: 1px solid #000;
+    font-size: 15px;
+    font-weight: lighter;
+    padding: 2px 3px;
+}
+
+.login-area .password a {
+    text-decoration: none;
+    color: #d7e9ff;
+    font-size: 12px;
+}
+
+.login-area .password a:hover {
+    text-decoration: underline;
+}
+
+.login-area input[type="submit"] {
+    margin-top: 21px;
+    padding: 2px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+/* Main body start */
+
+.signup-area::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.left-area {
+    width: 55%;
+    float: left;
+    padding-top: 13px;
+}
+
+.right-area {
+    widows: 45%;
+    float: left;
+}
+
+.left-area p {
+    font-size: 20px;
+    color: #0e385f;
+    font-weight: 600;
+    width: 90%;
+}
+
+.left-area img {
+    width: 60%;
+}
+
+.right-area h2 {
+    font-size: 33px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.right-area h4 {
+    font-size: 19px;
+    color: black;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.right-area input[type="text"],
+[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #bdc7d8;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 8px 10px;
+    margin: 5px 0;
+}
+
+.full-name {
+    overflow: hidden;
+}
+
+.first-name {
+    width: 48%;
+    float: left;
+    margin-right: 4%;
+}
+
+.last-name {
+    width: 48%;
+    float: left;
+}
+
+.birthday h4 {
+    margin-top: 10px;
+}
+
+.birthday input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #bdc7d8;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 8px 10px;
+    margin: 5px 0;
+}
+
+.Gender {
+    display: flex;
+    align-items: left;
+}
+
+.Gender input[type="radio"] {
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Gender label {
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.text-box {
+    width: 450px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.text-box p {
+    width: 100%;
+    word-wrap: break-word;
+    color: rgb(175, 153, 196);
+    font-size: 13px;
+}
+
+.text-box a {
+    text-decoration: none;
+}
+
+.text-box a:hover {
+    text-decoration: underline;
+}
+
+.btn input {
+    background: #00a400;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid rgb(70, 60, 60);
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 2px;
+}
+
+.btn input:hover {
+    cursor:pointer;
+}
+
+.right-area input {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}

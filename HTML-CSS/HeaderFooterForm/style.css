@@ -1,0 +1,161 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+
+body a {
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    background: black;
+    color: white;
+    display: flex;
+}
+
+header .logo {
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-left: 15px;
+    padding-top: 10px;
+    padding-top: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    list-style: none;
+    padding-left: 290px;
+}
+
+.navbar ul li {
+    background-color: rgb(18, 17, 17);
+    border: 1px solid #ffff;
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+    color: whitesmoke;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+.navbar ul a {
+    text-align: center;
+    color: whitesmoke;
+}
+
+.navbar ul li:hover {
+    background-color: crimson;
+    transition-property: all;
+    transition-duration: 400ms;
+}
+
+.navbar ul li:hover>ul {
+    display: list-item;
+}
+
+.navbar ul ul {
+    display: none;
+}
+
+/* Footer start */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(18, 17, 17);
+    color: whitesmoke;
+    text-align: center;
+    width: 100%;
+}
+
+.name h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.text p {
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    top: -20px;
+}
+
+.icons i {
+    font-size: 25px;
+    position: relative;
+    top: -15px;
+    padding: 6px;
+}
+
+.copyright {
+    background-color: black;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    top: -15px;
+    font-size: 20px;
+}
+
+/* Footer End */
+
+.form-container {
+    width: fit-content;
+    height: fit-content;
+    background-color: crimson;
+    padding: 20px;
+    margin: 0 auto;
+    position: relative;
+    top: 80px;
+    border-radius: 4%;
+}
+
+form {
+    width: 400px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 8px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+}

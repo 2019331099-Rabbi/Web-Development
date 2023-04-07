@@ -1,0 +1,23 @@
+#div1{
+    width: 500px;
+    height: 500px;
+    background-color: whitesmoke;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    margin-right: 100px;
+    border: 1px solid rgb(37, 38, 37);
+}
+
+.fa-brands{
+    font-size: 100px;
+    color: rgb(66, 103, 178);
+}
+
+#search{
+    font-size: 100px;
+}
+
+#delete{
+    font-size: 200px;
+}

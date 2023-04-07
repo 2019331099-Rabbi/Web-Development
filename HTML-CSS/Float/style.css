@@ -1,0 +1,20 @@
+div{
+    float: left;
+}
+.d1{
+    width: 400px;
+    height: 200px;
+    background-color: red;
+}
+
+.d2{
+    width: 400px;
+    height: 200px;
+    background-color: greenyellow;
+}
+
+.d3{
+    width: 400px;
+    height: 200px;
+    background-color: darkkhaki;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <div id="Name-area">
+            <label for="name">Name</label><br>
+            <input type="text" name="name" id="name" placeholder="Username" required />
+        </div>
+        <div id="email-area">
+            <label for="email">Email</label><br>
+            <input type="email" name="email" id="email" placeholder="email@address.com" required>
+        </div>
+        <div id="age-area">
+            <label for="age">Age</label><br>
+            <input type="number" name="age" id="age" min="1" max="200">
+        </div>
+        <div id="Password-area">
+            <label for="Password">Password</label><br>
+            <input type="password" name="Password" id="Password" placeholder="Password" required />
+        </div>
+        <div id="birthdate-area">
+            <label for="birthdate">Birth date</label><br>
+            <input type="date" name="birthdate" id="birthdate" required>
+        </div>
+        <div id="Favorite Food">
+            Favorite Food
+            <div>
+                <input type="checkbox" name="banana" id="banana">
+                <label for="banana">Banana</label><br>
+            </div>
+            <div>
+                <input type="checkbox" name="mango" id="mango">
+                <label for="mango">Mango</label><br>
+            </div>
+        </div>
+
+        <div id="gender-area">
+            Gender
+            <div>
+                <label for="male">Male</label>
+                <input type="radio" name="gernder" id="male">
+            </div>
+            <div>
+                <label for="female">Female</label>
+                <input type="radio" name="gernder" id="female">
+            </div>
+            <div>
+                <label for="other">Other</label>
+                <input type="radio" name="gernder" id="other">
+            </div>
+        </div>
+        <div id="Living-place">
+            <label for="Eye-color">Eye color</label>
+            <select name="Eye-color" id="Eye-color">
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="black">Black</option>
+            </select>
+        </div>
+
+        <div id="Biography">
+            <label for="bio">Bio</label><br>
+            <textarea name="bio" id="bio" rows="1"></textarea>
+        </div>
+        <div id="Validation-Files">
+            <label for="file">File</label>
+            <input type="file" name="file" id="file">
+        </div>
+
+        <div id="Telephone">
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone">
+        </div>
+
+        <div id="URL">
+            <label for="url">URL</label>
+            <input type="url" name="url" id="url">
+        </div>
+
+        <div id="Color">
+            <label for="color">Color</label>
+            <input type="color" name="Color" id="Color">
+        </div>
+
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

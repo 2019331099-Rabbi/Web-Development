@@ -1,0 +1,29 @@
+h1{
+    color: rgba(102, 51, 153, 0.5);
+}
+
+h2{
+    color: tomato;
+}
+
+p{
+    color: #199bff;
+}
+
+.d1{
+    height: 400px;
+    width: 400px;
+    background-color: #130f40;
+}
+
+.d2{
+    height: 400px;
+    width: 400px;
+    background: linear-gradient(to left bottom, #130f40, rgba(201, 0, 0));
+}
+
+.d3{
+    height: 400px;
+    width: 400px;
+    background: radial-gradient(rgba(201, 0, 0), #130f40);
+}
