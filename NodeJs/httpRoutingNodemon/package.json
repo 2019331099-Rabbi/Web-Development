@@ -1,0 +1,19 @@
+{
+  "name": "httproutingnodemon",
+  "version": "1.0.0",
+  "description": "nodemon testing and http routing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "npm",
+    "http_routing"
+  ],
+  "author": "fazlaRabbi",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
