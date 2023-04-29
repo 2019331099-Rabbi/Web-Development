@@ -1,0 +1,21 @@
+client to server -> request
+server to client -> response
+
+
+REQUEST
+for request we use the following function
+GET()
+DELETE()
+POST()
+PUT()
+OPTION()
+HEAD()
+
+
+RESPONSE
+part1 -> status code
+    200/404/500
+    analysing status code we understand what happend
+part2 -> data
+    1. head -> contains sensitive information
+    2. body -> contains generel information

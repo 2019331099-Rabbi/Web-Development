@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- BS-5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/850b77dab2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>BS5</title>
+  <style>
+    .my-link-style:hover {
+      text-decoration: underline;
+    }
+    .gradient-custom {
+        /* fallback for old browsers */
+        background: #c471f5;
+
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(
+          to right,
+          rgba(196, 113, 245, 1),
+          rgba(250, 113, 205, 1)
+        );
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(
+          to right,
+          rgba(196, 113, 245, 1),
+          rgba(250, 113, 205, 1)
+        );
+      }
+      img {
+        width: 60px;
+      }
+  </style>
+</head>
+
+<body>
+  <!-- <header class="bg-primary text-white text-left text-md-center p-2">
+        <h1>Learn with Rabbi</h1>
+      </header> -->
+      <header>
+        <nav class="navbar navbar-expand-sm navbar-dark gradient-custom">
+            <a href="#" class="navbar-brand">
+                <img class="rounded-circle ms-2"
+                    src="data:image/png;base64, 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"
+                    alt="" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tutorial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+  <main>
+    <div class="service bg-light pt-3">
+      <div class="title text-left text-md-center bg-white my-5">
+        <h2 class="font-weight-bolder">Services</h2>
+      </div>
+
+      <div class="row text-left text-md-center">
+        <div class="col-12 col-md-6 col-lg-3">
+          <i class="bg-primary p-2 fa-2x text-white rounded-circle mb-3 fa-solid fa-handshake"></i>
+          <h5 class="text-uppercase">Web design</h5>
+          <p class="small text-muted">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
+            soluta ipsum sapiente omnis sint ipsa odit a maxime! Velit,
+            aspernatur Lorem ipsum dolor sit amet consectetur adipisicing.
+            Lorem ipsumet.
+            <a href="#demo" data-bs-toggle="collapse">learn more</a>
+          </p>
+
+          <div class="collapse" id="demo">
+            <p class="small text-muted">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+              dolorem sed quisquam repudiandae sequi voluptatibus, aperiam
+              aliquam adipisci nam maiores quia unde necessitatibus veritatis
+              eligendi in laboriosam, officia porro? Explicabo.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <i class="bg-primary p-2 fa-2x text-white rounded-circle mb-3 fa-solid fa-handshake"></i>
+          <h5 class="text-uppercase">Web design</h5>
+          <p class="small text-muted">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
+            nesciunt doloremque ea quia earum, reprehenderit nihil dolores
+            odio cupiditate ration Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Omnis dicta ipsum placeat iure vero quia?
+          </p>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <i class="bg-primary p-2 fa-2x text-white rounded-circle mb-3 fa-solid fa-handshake"></i>
+          <h5 class="text-uppercase">Web design</h5>
+          <p class="small text-muted">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Eligendi, facere impedit! Repudiandae, accusamus cumque unde eum
+            magnam fuga excepturi tenetur hic? Quod eos eaque, non deserunt
+            dolores necessitatibus magnam incidunt. Lorem, ipsum dolor sit
+            amet consectetur adipisicing elit. Ad tempora ea voluptate!
+            Voluptate, voluptas omnis.
+          </p>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <i class="bg-primary p-2 fa-2x text-white rounded-circle mb-3 fa-solid fa-handshake"></i>
+          <h5 class="text-uppercase">Web design</h5>
+          <p class="small text-muted">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            nihil fuga et, recusandae cupiditate quisquam voluptatem ad
+            dignissimos, sunt facilis, doloremque saepe rerum laboriosam Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Vero nisi
+            libero unde atque, esse laudantium. placeat.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer review section -->
+    <div class="customer-review bg-light">
+      <div class="title text-center m-3">
+        <h3 class="font-weight-bolder">Customer review</h3>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-lg-4">
+          <i class="fa-2x p-2 fa-solid fa-circle-user"></i>
+          <blockquote class="blockquote">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Possimus nobis necessitatibus quas eius. Distinctio, recusandae!
+              After the playlist have finished you will learn
+              <abbr title="bootstrap-5">bs4</abbr>
+            </p>
+            <footer class="blockquote-footer">
+              Fazla Rabbi in <cite>Youtube</cite>
+            </footer>
+          </blockquote>
+        </div>
+
+        <div class="col-lg-4">
+          <i class="fa-2x p-2 fa-solid fa-circle-user"></i>
+          <blockquote class="blockquote">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Possimus nobis necessitatibus quas eius. Distinctio, recusandae!
+              After the playlist have finished you will learn
+              <abbr title="bootstrap-5">bs4</abbr>
+            </p>
+            <footer class="blockquote-footer">
+              Fazla Rabbi in <cite>Youtube</cite>
+            </footer>
+          </blockquote>
+        </div>
+
+        <div class="col-lg-4">
+          <i class="fa-2x p-2 fa-solid fa-circle-user"></i>
+          <blockquote class="blockquote">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Possimus nobis necessitatibus quas eius. Distinctio, recusandae!
+              After the playlist have finished you will learn
+              <abbr title="bootstrap-5">bs4</abbr>
+            </p>
+            <footer class="blockquote-footer">
+              Fazla Rabbi in <cite>Youtube</cite>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <!-- product list -->
+    <div class="student-list">
+      <ul class="list-group">
+        <li class="list-group-item disabled">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+        <a href="#demo" data-bs-toggle="collapse">learn more</a>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <footer>
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </footer>
+  </footer>
+
+  <div class="container">
+    <!-- Nav tabs -->
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="pill" href="#education">Education</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#skill">Skill</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#hobby">Hobby</a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane container active" id="education">This is a edu tab.</div>
+      <div class="tab-pane container fade" id="skill">This is a skill tab.</div>
+      <div class="tab-pane container fade" id="hobby">This is a hobby tab.</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
