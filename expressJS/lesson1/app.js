@@ -9,7 +9,6 @@ app.get("/", (req, res) => {
     res.cookie("age", "30");
     res.statusCode = 200;
     res.sendFile(__dirname + "/views/index.html");
-    
 });
 
 app.get("/register", (req, res) => {
