@@ -1,6 +1,6 @@
 const path = require('path');
 const users = require('../models/userModel');
-const { use } = require('../routes/userRoute');
+
 
 
 exports.getUsers = (req, res) => {

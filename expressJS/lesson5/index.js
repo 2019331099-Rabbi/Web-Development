@@ -1,6 +1,7 @@
 // Handling form data
 const express = require("express");
 const multer  = require('multer');
+const mysql = require('mysql');
 const PORT = 3000;
 const app = express();
 
@@ -20,12 +21,12 @@ app.get('/register', (req, res) => {
 });
 
 
-app.post('/register', upload.single('photo'), (req, res) => {
+app.post('/register', upload.single('file'), (req, res) => {
     const name = req.body.name;
     const age = req.body.age;
     const photo = req.file.filename;
     res.send(`Name: ${name}, Age: ${age}, Photo: ${photo}`);
-  });
+});
 
 app.listen(PORT, () => {
     console.log("Server run success");
