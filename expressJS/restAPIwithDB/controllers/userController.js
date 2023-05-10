@@ -28,7 +28,6 @@ const createOrDeleteUser = (req, res) => {
         console.log(`Form data inserted into the 'donor' table: ${result.affectedRows} row(s) affected`);
         res.send('Form data received and stored in the database!');
     });
-
 };
 
 const updateUser = (req, res) => {

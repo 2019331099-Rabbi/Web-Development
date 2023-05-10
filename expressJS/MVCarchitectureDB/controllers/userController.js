@@ -12,6 +12,5 @@ exports.saveUsers = (req, res) => {
     connection.query(sql, (err, result) => {
         if (err) throw err;
         console.log(`Form data inserted into the database: ${result.affectedRows} row(s) affected`);
-
     });
 };
