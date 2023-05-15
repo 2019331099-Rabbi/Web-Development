@@ -1,0 +1,22 @@
+.navbar {
+  padding: 20px 20px;
+  background-color: #182C61 !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  font-weight: bold;
+}
+
+.navbar-nav.ms-auto .nav-link:not(:last-child) {
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-link.active {
+  color: white !important;
+}
+
+.card-img-top {
+  width: 70%;
+  align-items: center;
+}
