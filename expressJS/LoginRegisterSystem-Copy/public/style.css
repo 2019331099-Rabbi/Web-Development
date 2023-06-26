@@ -1,0 +1,47 @@
+.navbar {
+    padding: 20px 20px;
+    background-color: #182C61 !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    font-weight: bold;
+}
+
+.navbar-nav.ms-auto .nav-link:not(:last-child) {
+    margin-right: 10px;
+}
+
+.card-img-top {
+    width: 70%;
+    align-items: center;
+}
+
+.card-header {
+    font-weight: bold;
+    color: white;
+    background-color: #182C61 !important;
+}
+
+.card {
+    border: 2px solid #dae0f0;
+    border-radius: 10px !important;
+}
+
+.card .card-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card .btn {
+    color: white;
+    font-weight: bold;
+    background-color: #182C61;
+    border: none;
+}
+
+.card .btn:hover {
+    background-color: #374877;
+    border: none;
+}
+

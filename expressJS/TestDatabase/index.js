@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'password',
     database: 'users'
 });
 
@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
     let name = req.body.name;
     let email = req.body.email;
+    res.status(200).json({name, email});
     const sql = `INSERT INTO donorlist (name, email) values ('${name}', '${email}')`;
     connection.query(sql, (err, result) => {
         if (err) throw err;
