@@ -51,7 +51,7 @@ exports.login = (req, res) => {
                     message: "Internal Server Error"
                 });
             }
-            if (!results || !(await bcrypt.compare(password, results[0].password))) {
+            if (!results.length || !(await bcrypt.compare(password, results[0].password))) {
                 return res.status(401).render("login", {
                     message: "Email or Password is incorrect"
                 });
