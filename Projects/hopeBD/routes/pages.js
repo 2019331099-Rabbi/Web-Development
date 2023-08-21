@@ -22,15 +22,16 @@ router.get("/login", (req, res) => {
 
 router.get("/profile", authController.isLoggedIn, (req, res) => {
     if (req.user) {
-        console.log("Token found");
         if (req.type === 'donor') {
+            console.log(req.user);
             res.render("profileD", {
                 user: req.user
             });
         }
         else {
             res.render("profileC", {
-            user: req.user
+                user: req.user,
+                sectors: req.sectors
             });
         }
     }

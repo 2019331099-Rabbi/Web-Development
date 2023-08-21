@@ -1,14 +1,13 @@
 const myDB = require('../models/dbConnect');
 const bcrypt = require('bcryptjs');
-const { log } = require('console');
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 
 exports.registerD = async (req, res) => {
 
     const { name, email, password, passwordConfirm } = req.body;
-    const existUser = "SELECT email FROM donor WHERE email = ? UNION SELECT email FROM collector WHERE email = ?";
-    myDB.query(existUser, [email, email], async (error, results) => {
+    const existUser = "SELECT email FROM useremail WHERE email = ?";
+    myDB.query(existUser, [email], async (error, results) => {
         if (error) {
             return res.status(500).render('registerDonor', {message: "Internal server error"});
         }
@@ -20,14 +19,57 @@ exports.registerD = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const insertUser = "INSERT INTO donor (name, email, password) VALUES (?, ?, ?)";
+        const insertEmail = "INSERT INTO useremail (email, user_type) VALUES (?, ?)";
+        const insertUser = "INSERT INTO donor (name, email_id, password) VALUES (?, ?, ?)";
 
-        myDB.query(insertUser, [name, email, hashedPassword], async (error, results) => {
+        myDB.query(insertEmail, [email, 'donor'], async (error, results) => {
                 if (error) console.log(error);
                 else {
-                    return res.status(200).render("registerDonor", {
-                        message: "User successfully registered",
-                    });
+                    myDB.query(insertUser, [name, results.insertId, hashedPassword], async (error, results) => {
+                            if (error) console.log(error);
+                            else {
+                                return res.status(200).render("registerDonor", {
+                                    message: "User successfully registered",
+                                });
+                            }
+                        }
+                    );
+                }
+            }
+        );
+    });
+}
+
+exports.registerC = async (req, res) => {
+    const { name, email, phone, district, password, passwordConfirm } = req.body;
+    const existUser = "SELECT email FROM useremail WHERE email = ?";
+    myDB.query(existUser, [email], async (error, results) => {
+        if (error) {
+            return res.status(500).render('registerDonor', {message: "Internal server error"});
+        }
+        else if (results.length > 0) {
+            return res.render('registerCollector', {message: "This email is already in use"});   
+        }
+        else if (password !== passwordConfirm) {
+            return res.render('registerCollector', {message: "Password don't match"});
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const insertEmail = "INSERT INTO useremail (email, user_type) VALUES (?, ?)";
+        const insertUser = "INSERT INTO collector (name, email_id, phone, district, password) VALUES (?, ?, ?, ?, ?)";
+
+        myDB.query(insertEmail, [email, 'collector'], async (error, results) => {
+                if (error) console.log(error);
+                else {
+                    myDB.query(insertUser, [name, results.insertId, phone, district, hashedPassword], async (error, results) => {
+                            if (error) console.log(error);
+                            else {
+                                return res.status(200).render("registerCollector", {
+                                    message: "Collector successfully registered",
+                                });
+                            }
+                        }
+                    );
                 }
             }
         );
@@ -42,29 +84,74 @@ exports.login = async (req, res) => {
                 message: "Please provide email and password"
             });
         }
-        const checkUserInfo = "(SELECT email, password FROM donor WHERE email = ?) UNION (SELECT email, password FROM collector WHERE email = ?);";
-        myDB.query(checkUserInfo, [email, email], async (error, results) => {
+        const checkUserInfo = "(SELECT * FROM useremail WHERE email = ?);";
+        myDB.query(checkUserInfo, [email], async (error, results) => {
             if (error) {
                 return res.status(500).render('login', {
                     message: "Internal Server Error"
                 });
             }
-            if (!results.length || !(await bcrypt.compare(password, results[0].password))) {
+            if (!results.length) {
                 return res.status(401).render('login', {
-                    message: "Email or Password is incorrect"
+                    message: "Email is incorrect"
                 });
             }
-            const email = results[0].email;
-            const token = jwt.sign({ email }, process.env.JWT_SECRET, {
-                expiresIn: process.env.JWT_TOKEN_EXPIRESIN
-            });
 
-            const cookieOptions = {
-                exprires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES*24*60*60*1000),
-                httpOnly: true
-            };
-            res.cookie('jwt', token, cookieOptions);
-            res.redirect("/");
+            if (results[0].user_type === 'donor') {
+                const logInfo = "(SELECT * FROM donor WHERE email_id = ?);";
+                myDB.query(logInfo, [results[0].id], async (error, resultsP) => {
+                    if (error) {
+                        return res.status(500).render('login', {
+                            message: "Internal Server Error"
+                        });
+                    }
+                    
+                    if (!(await bcrypt.compare(password, resultsP[0].password))) {
+                        return res.status(401).render('login', {
+                            message: "Password is incorrect"
+                        });
+                    }
+                    const email_id = results[0].id;
+                    const token = jwt.sign({ email_id }, process.env.JWT_SECRET, {
+                        expiresIn: process.env.JWT_TOKEN_EXPIRESIN
+                    });
+        
+                    const cookieOptions = {
+                        exprires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES*24*60*60*1000),
+                        httpOnly: true
+                    };
+                    res.cookie('jwt', token, cookieOptions);
+                    res.redirect("/");
+                });
+            }
+
+            else {
+                const logInfo = "(SELECT * FROM collector WHERE email_id = ?);";
+                myDB.query(logInfo, [results[0].id], async (error, resultsP) => {
+                    if (error) {
+                        return res.status(500).render('login', {
+                            message: "Internal Server Error"
+                        });
+                    }
+                    
+                    if (!(await bcrypt.compare(password, resultsP[0].password))) {
+                        return res.status(401).render('login', {
+                            message: "Password is incorrect"
+                        });
+                    }
+                    const email_id = results[0].id;
+                    const token = jwt.sign({ email_id }, process.env.JWT_SECRET, {
+                        expiresIn: process.env.JWT_TOKEN_EXPIRESIN
+                    });
+        
+                    const cookieOptions = {
+                        exprires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES*24*60*60*1000),
+                        httpOnly: true
+                    };
+                    res.cookie('jwt', token, cookieOptions);
+                    res.redirect("/");
+                });
+            }
         });
         
     } catch (error) {
@@ -77,28 +164,45 @@ exports.isLoggedIn = async (req, res, next) => {
         try {
             // Verify the token
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
+            // console.log(decoded);
 
             // Check if the user still exists
-            const checkUserExistDonor = 'SELECT * FROM donor WHERE email = ?';
-            const checkUserExistCollector = 'SELECT * FROM collector WHERE email = ?';
+            const checkUserExist = 'SELECT * FROM useremail WHERE id = ?';
 
-            const queryDonor = promisify(myDB.query).bind(myDB);
-            const queryCollector = promisify(myDB.query).bind(myDB);
+            myDB.query(checkUserExist, [decoded.email_id], async (error, userResults) => {
+                if (userResults.length) {
+                    if (userResults[0].user_type === 'donor') {
+                        const donorData = 'SELECT * FROM donor WHERE email_id = ?';
+                        myDB.query(donorData, [userResults[0].id], async (error, donorResults) => {
+                            if (donorResults.length) {
+                                req.user = donorResults[0];
+                                req.type = 'donor';
+                            }
+                            next(); // Call next() here
+                        });
+                    }
+                    else {
+                        const collectorData = 'SELECT * FROM collector WHERE email_id = ?';
+                        myDB.query(collectorData, [userResults[0].id], async (error, collectorResults) => {
+                            req.user = collectorResults[0];
+                            req.type = 'collector';
 
-            const resultsDonor = await queryDonor(checkUserExistDonor, [decoded.email]);
-            const resultsCollector = await queryCollector(checkUserExistCollector, [decoded.email]);
+                            const sectorsData = 'SELECT * FROM donation_sector WHERE collector_id = ?';
+                            myDB.query(sectorsData, [collectorResults[0].id], async (error, sectorsResult) => {
+                                req.sectors = sectorsResult;
+                                next();
+                            })
+                        });
+                    }
+                }
 
-            if (resultsDonor.length) {
-                req.user = resultsDonor[0];
-                req.type = 'donor';
-            } else if (resultsCollector.length) {
-                req.user = resultsCollector[0];
-                req.type = 'collector';
-            }
-            return next();
+                else {
+                    next(); // Call next() here for no user found
+                }
+            });
         } catch (error) {
             console.log(error);
-            return next();
+            next(); // Call next() here for error case
         }
     } else {
         next();
